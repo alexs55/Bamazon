@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     database: 'bamazon_DB'
 });
 
-var itemsarr = [];
+// var itemsarr = [];
 
 connection.connect(function (err) {
     if (err) throw err;
@@ -31,7 +31,7 @@ connection.connect(function (err) {
                 console.log("\nDepartment: " + res[i].department);
                 console.log("\nPrice: $" + res[i].price);
                 console.log("\nQuantity remaining: " + res[i].quantity);
-                itemsarr.push(res[i].itemid);
+                // itemsarr.push(res[i].itemid);
 
 
             }
@@ -64,14 +64,14 @@ connection.connect(function (err) {
             var query = connection.query("SELECT quantity,price From items WHERE itemid = " + "'" +  answers.itemID + "'" , function (err, res) {
                 if (err) throw err;
 
-                console.log(res[0].quantity)
+                
                 if( answers.quantity > res[0].quantity){
                     console.log("Insufficient quantity!, Please connect again. Goodbye!")
                     connection.end();
     
                 }else{
                     var purchase = res[0].quantity - answers.quantity
-                    console.log(purchase)
+                    
                     var iditem = "" + answers.itemID + ""
                     decreaseProduct(purchase,iditem);
                     console.log("\nThe total for your purchase was $" + (res[0].price * answers.quantity));
@@ -107,7 +107,7 @@ function decreaseProduct(amount,item) {
                 }
               ],
               function(err, res) {
-                  console.log(res.affectedRows + " Item quantity updated!")
+                  console.log("\n"+ res.affectedRows + " Item quantity updated!")
               }
         )
     }
