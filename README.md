@@ -21,3 +21,5 @@ Lastly, if the item quantity is not available when checking on the database, the
 In this example, the user attempted to buy 10 of an item that had 9 remaining.
 
 https://drive.google.com/open?id=17DQS4kMQlUm25eVk6bmUAy-LGgwPETV2
+
+The Bamazonmanager.js is being worked on, currently displays low items, lets you add quantities to existing items and view the full list of items. Updates to be coming soon.
